@@ -14,39 +14,7 @@ export type Database = {
   }
   public: {
     Tables: {
-      quote_requests: {
-        Row: {
-          citta: string
-          cognome: string
-          created_at: string
-          email: string
-          id: string
-          nome: string
-          note: string | null
-          telefono: string
-        }
-        Insert: {
-          citta: string
-          cognome: string
-          created_at?: string
-          email: string
-          id?: string
-          nome: string
-          note?: string | null
-          telefono: string
-        }
-        Update: {
-          citta?: string
-          cognome?: string
-          created_at?: string
-          email?: string
-          id?: string
-          nome?: string
-          note?: string | null
-          telefono?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
