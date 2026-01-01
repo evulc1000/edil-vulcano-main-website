@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import logoEdilVulcano from "@/assets/LogoEdilVulcano.webp";
 
 const QuickEstimate = () => {
+  const location = useLocation();
+  const hasPrefilled = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
@@ -18,6 +21,27 @@ const QuickEstimate = () => {
   useEffect(() => {
     document.title = "Preventivo rapido | Edil Vulcano";
   }, []);
+
+  useEffect(() => {
+    if (hasPrefilled.current) return;
+    const params = new URLSearchParams(location.search);
+    const nome = params.get("nome") ?? "";
+    const email = params.get("email") ?? "";
+    const telefono = params.get("telefono") ?? "";
+    const note = params.get("note") ?? "";
+
+    if (nome || email || telefono || note) {
+      setFormData((prev) => ({
+        ...prev,
+        nome: prev.nome || nome,
+        email: prev.email || email,
+        telefono: prev.telefono || telefono,
+        note: prev.note || note,
+      }));
+    }
+
+    hasPrefilled.current = true;
+  }, [location.search]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
