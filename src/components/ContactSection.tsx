@@ -24,10 +24,16 @@ const ContactSection = () => {
             </p>
             <div className="space-y-3 font-futuru text-[18px] text-body-text/80 mb-6">
               <p>
-                <span className="font-semibold text-headline">Telefono:</span> +39 351 457 7039
+                <span className="font-semibold text-headline">Telefono:</span>{" "}
+                <a href="tel:+393514577039" className="hover:text-[#DD5E1F] transition-colors">
+                  +39 351 457 7039
+                </a>
               </p>
               <p>
-                <span className="font-semibold text-headline">Email:</span> edilvulcanosrsl@gmail.com
+                <span className="font-semibold text-headline">Email:</span>{" "}
+                <a href="mailto:edilvulcanosrsl@gmail.com" className="hover:text-[#DD5E1F] transition-colors">
+                  edilvulcanosrsl@gmail.com
+                </a>
               </p>
               <p>
                 <span className="font-semibold text-headline">PEC:</span> edilvulcanosrl@pec.cgn.it
@@ -43,20 +49,18 @@ const ContactSection = () => {
               <NavLink to="/preventivo-rapido">Contattaci</NavLink>
             </Button>
           </div>
-          <div className="rounded-3xl border border-[#EFE3D9] bg-white/90 p-6 md:p-8 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.45)] backdrop-blur">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-full rounded-2xl bg-[#FFF7F1] p-4">
+            <div className="flex flex-col items-center gap-4 rounded-3xl border border-[#EFE3D9] bg-white/90 p-6 md:p-8 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.45)] backdrop-blur">
+              <div className="relative h-[180px] w-full rounded-2xl bg-[#FFF7F1] sm:h-[220px] md:h-[400px]">
                 <img
                   src={AfifDaSolo}
                   alt="Afif Boussenna, Proprietario di Edil Vulcano"
-                  className="h-[240px] w-full object-contain"
+                  className="h-full w-full object-contain object-center"
                 />
               </div>
               <p className="text-center font-futuru text-[16px] md:text-[17px] tracking-[0.5px] text-[#3A3D42]">
                 Afif Boussenna - Proprietario di Edil Vulcano
               </p>
             </div>
-          </div>
         </div>
       </div>
     </section>

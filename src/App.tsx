@@ -9,6 +9,8 @@ import ServicesPage from "./pages/Services";
 import ProjectsPage from "./pages/Projects";
 import ContactPage from "./pages/Contact";
 import QuickEstimate from "./pages/QuickEstimate";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/progetti" element={<ProjectsPage />} />
           <Route path="/contatti" element={<ContactPage />} />
           <Route path="/preventivo-rapido" element={<QuickEstimate />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
