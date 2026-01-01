@@ -1,4 +1,5 @@
-﻿import { NavLink } from "@/components/NavLink";
+﻿import { useEffect, useRef, useState } from "react";
+import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import doodle60 from "@/assets/Doodle (60).svg";
 import doodle81 from "@/assets/Doodle (81).svg";
@@ -9,9 +10,10 @@ import AfifDaSolo from "@/assets/afifdasolo.webp";
 
 type IntroCardProps = {
   className?: string;
+  shouldLoadVideos?: boolean;
 };
 
-const IntroShowcaseCard = ({ className = "" }: IntroCardProps) => {
+const IntroShowcaseCard = ({ className = "", shouldLoadVideos = false }: IntroCardProps) => {
   return (
     <div className={`relative w-full pt-[160px] sm:pt-[180px] md:pt-[200px] lg:pt-[220px] ${className}`}>
       <div
@@ -43,12 +45,12 @@ const IntroShowcaseCard = ({ className = "" }: IntroCardProps) => {
             <div className="mb-3 relative h-[140px] overflow-hidden rounded-2xl bg-[#FFD8C4] sm:h-[200px] md:h-[230px]">
               <video
                 className="h-full w-full object-cover contrast-125 saturate-125"
-                src={ValutazioneProfessionaleGif}
+                src={shouldLoadVideos ? ValutazioneProfessionaleGif : undefined}
                 muted
                 autoPlay
                 playsInline
                 loop
-                preload="metadata"
+                preload="none"
               />
               <div className="pointer-events-none absolute inset-0 bg-[#FF7A2F]/10" aria-hidden="true" />
             </div>
@@ -88,12 +90,12 @@ const IntroShowcaseCard = ({ className = "" }: IntroCardProps) => {
             <div className="mb-3 relative h-[140px] overflow-hidden rounded-2xl bg-[#E6E6E6] sm:h-[200px] md:h-[230px]">
               <video
                 className="h-full w-full object-cover saturate-0 contrast-75 opacity-80"
-                src={DecisioniAlBuioGif}
+                src={shouldLoadVideos ? DecisioniAlBuioGif : undefined}
                 muted
                 autoPlay
                 playsInline
                 loop
-                preload="metadata"
+                preload="none"
               />
               <div className="pointer-events-none absolute inset-0 bg-white/10" aria-hidden="true" />
             </div>
@@ -179,8 +181,35 @@ const AfifImageCard = ({ className = "" }: IntroCardProps) => {
 };
 
 const IntroCopySection = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+
+  useEffect(() => {
+    if (shouldLoadVideos) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideos(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [shouldLoadVideos]);
+
   return (
-    <section className="relative bg-white pt-10 xl:pt-0 pb-12 md:pb-16">
+    <section ref={sectionRef} className="relative bg-white pt-10 xl:pt-0 pb-12 md:pb-16">
       <div className="wall-texture-overlay wall-texture-overlay-gradient" />
       <div className="relative z-10 mx-auto lg:w-[1024px] xl:w-[1280px] flex w-full flex-col gap-10 px-[20px] xl:px-[45px] md:flex-row">
         <div className="flex w-full md:w-[60%] max-w-[664px] flex-col items-start gap-6">
@@ -199,7 +228,7 @@ const IntroCopySection = () => {
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black font-medium">Sono domande normali... </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Eppure, a volte, ci si sente in imbarazzo a farle...  </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Per paura di sembrare diffidenti, inesperti o di rallentare tutto.            </p>
-            <IntroShowcaseCard className="md:hidden" />
+            <IntroShowcaseCard className="md:hidden" shouldLoadVideos={shouldLoadVideos} />
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Vedi, sono proprio le domande che guidano le decisioni del tuo progetto.            </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black"><mark>Il problema non è che qualcuno le nasconde...</mark>            </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Ma spesso sembrano cose... scontate.            </p>
@@ -228,7 +257,7 @@ const IntroCopySection = () => {
         </div>
         <div className="hidden w-full md:flex md:w-[40%] flex-col items-center gap-80 md:self-start">
           <div className="hidden w-full md:flex flex-col items-center gap-6 md:self-start">
-            <IntroShowcaseCard />
+            <IntroShowcaseCard shouldLoadVideos={shouldLoadVideos} />
             <IntroCtaButton />
           </div>
           <AfifImageCard />

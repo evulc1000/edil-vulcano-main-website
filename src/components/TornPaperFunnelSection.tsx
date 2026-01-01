@@ -27,6 +27,31 @@ const TornPaperFunnelSection = () => {
   const [photoStops, setPhotoStops] = useState<number[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [orbActive, setOrbActive] = useState(false);
+  const [shouldLoadVideos, setShouldLoadVideos] = useState(false);
+
+  useEffect(() => {
+    if (shouldLoadVideos) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideos(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [shouldLoadVideos]);
 
   useEffect(() => {
     const updateStops = () => {
@@ -253,12 +278,12 @@ const TornPaperFunnelSection = () => {
             <div className="mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-dashed border-[#D7D7D7] bg-[#F4F4F4]">
               <video
                 className="h-full w-full object-cover"
-                src={VIDEO_SOURCES[0]}
+                src={shouldLoadVideos ? VIDEO_SOURCES[0] : undefined}
                 muted
                 playsInline
                 loop
                 autoPlay
-                preload="metadata"
+                preload="none"
                 aria-hidden="true"
               />
             </div>
@@ -276,12 +301,12 @@ const TornPaperFunnelSection = () => {
             <div className="mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-dashed border-[#D7D7D7] bg-[#F4F4F4]">
               <video
                 className="h-full w-full object-cover"
-                src={VIDEO_SOURCES[1]}
+                src={shouldLoadVideos ? VIDEO_SOURCES[1] : undefined}
                 muted
                 playsInline
                 loop
                 autoPlay
-                preload="metadata"
+                preload="none"
                 aria-hidden="true"
               />
             </div>
@@ -302,12 +327,12 @@ const TornPaperFunnelSection = () => {
             <div className="mx-auto aspect-square w-full max-w-[360px] overflow-hidden rounded-2xl border border-dashed border-[#D7D7D7] bg-[#F4F4F4]">
               <video
                 className="h-full w-full object-cover"
-                src={VIDEO_SOURCES[2]}
+                src={shouldLoadVideos ? VIDEO_SOURCES[2] : undefined}
                 muted
                 playsInline
                 loop
                 autoPlay
-                preload="metadata"
+                preload="none"
                 aria-hidden="true"
               />
             </div>
@@ -398,11 +423,11 @@ const TornPaperFunnelSection = () => {
                 key={`tablet-funnel-video-${activeIndex}`}
                 ref={tabletVideoRef}
                 className="funnel-photo-video"
-                src={VIDEO_SOURCES[activeIndex]}
+                src={shouldLoadVideos ? VIDEO_SOURCES[activeIndex] : undefined}
                 muted
                 playsInline
                 loop
-                preload="metadata"
+                preload="none"
                 onLoadedMetadata={(event) => {
                   const video = event.currentTarget;
                   video.pause();
@@ -429,11 +454,11 @@ const TornPaperFunnelSection = () => {
                       videoRefs.current[index] = element;
                     }}
                     className="funnel-photo-video"
-                    src={VIDEO_SOURCES[index]}
+                    src={shouldLoadVideos ? VIDEO_SOURCES[index] : undefined}
                     muted
                     playsInline
                     loop
-                    preload="metadata"
+                    preload="none"
                     onLoadedMetadata={(event) => {
                       const video = event.currentTarget;
                       video.pause();
