@@ -220,7 +220,7 @@ const IntroCopySection = () => {
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Però ora, <span className="font-semibold"> se vuoi davvero avere chiarezza su ciò che va fatto nel tuo progetto...</span>             </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black font-light italic">(E ne ha viste di tutti i colori)         </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black">Ciò che sto per dirti potrebbe essere la soluzione a tutti i tuoi problemi di gestione.             </p>
-            <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black"><mark> Edil Vulcano offre una un preventivo veloce senza impegno e valuterà ogni singolo passaggio del progetto.</mark>             </p>
+            <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black"><mark> Edil Vulcano offre un preventivo veloce senza impegno e valuterà ogni singolo passaggio del progetto.</mark>             </p>
             <p className="w-full items-center font-futuru text-[21px] md:text-[26px] leading-[35px] md:leading-[40px] tracking-[0.8px] text-black font-bold">Vuoi sapere come funziona?            </p>
             <IntroCtaButton className="md:hidden" />
             <AfifImageCard className="md:hidden" />

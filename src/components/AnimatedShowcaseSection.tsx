@@ -41,10 +41,10 @@ const CantiereCarousel = ({ reverse = false }: { reverse?: boolean }) => {
             <div className="cantiere-slide-media">
               <img src={image} alt="" aria-hidden="true" className="cantiere-slide-image" />
               <div className="cantiere-slide-overlay" />
-              <span className="cantiere-slide-label">Foto dal cantiere</span>
+              {/* <span className="cantiere-slide-label">Foto dal cantiere</span> */}
             </div>
-            <div className="cantiere-slide-title">Cantiere reale</div>
-            <p className="cantiere-slide-note">Fasi operative, dettagli e lavorazioni dal vivo.</p>
+            {/* <div className="cantiere-slide-title">Cantiere reale</div>
+            <p className="cantiere-slide-note">Fasi operative, dettagli e lavorazioni dal vivo.</p> */}
           </div>
         ))}
       </div>

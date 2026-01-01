@@ -283,7 +283,7 @@
 }
 
 .three-step-title {
-  font-family: "Grift", "Times New Roman", serif;
+  font-family: "Grift" !important;
   font-size: 30px;
   color: #3a3d42;
 }

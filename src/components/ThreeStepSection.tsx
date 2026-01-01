@@ -60,7 +60,7 @@ const ThreeStepSection = () => {
             <div className="three-step-detail" role="tabpanel">
               <div className="three-step-text">
                 <div className="three-step-label">{currentStep.label}</div>
-                <div className="three-step-title font-bold">{currentStep.title}</div>
+                <div className="three-step-title font-grift font-bold italic">{currentStep.title}</div>
                 <p className="three-step-copy font-light">{currentStep.copy}</p>
                 <Button asChild variant="hero" className={`${ctaClassName} mt-4`}>
                   <NavLink to="/preventivo-rapido">{currentStep.cta}</NavLink>

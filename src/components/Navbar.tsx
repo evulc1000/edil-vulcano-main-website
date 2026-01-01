@@ -7,7 +7,7 @@ import logoEdilVulcano from "@/assets/LogoEdilVulcano.webp";
 
 const navLinks = [
   { label: "Chi siamo", to: "/#chi-siamo" },
-  { label: "Servizi", to: "/#servizi" },
+  // { label: "Servizi", to: "/#servizi" },
   { label: "Progetti", to: "/#progetti-showcase" },
   { label: "Contatti", to: "/#contatti" },
 ];
