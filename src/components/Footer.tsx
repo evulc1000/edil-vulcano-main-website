@@ -50,8 +50,8 @@ const Footer = () => {
               </p>
               <p>
                 Email:{" "}
-                <a href="mailto:edilvulcanosrsl@gmail.com" className="hover:text-[#FF5500] transition-colors">
-                  edilvulcanosrsl@gmail.com
+                <a href="mailto:edilvulcanosrl@gmail.com" className="hover:text-[#FF5500] transition-colors">
+                  edilvulcanosrl@gmail.com
                 </a>
               </p>
               <p>PEC: edilvulcanosrl@pec.cgn.it</p>
