@@ -7,6 +7,8 @@ import ValutazioneProfessionaleGif from "@/assets/ValutazioneProfessionaleGif.mp
 import EdilVulcanoTeamNoBG from "@/assets/EdilVulcanoTeamNoBG.webp";
 import DecisioniAlBuioGif from "@/assets/DecisioniAlBuioGif.mp4";
 import AfifDaSolo from "@/assets/afifdasolo.webp";
+import YtongLogo from "@/assets/Ytong.webp";
+import AquapanelLogo from "@/assets/Aquapanel-Logo.svg-.webp";
 
 type IntroCardProps = {
   className?: string;
@@ -213,6 +215,27 @@ const IntroCopySection = () => {
       <div className="wall-texture-overlay wall-texture-overlay-gradient" />
       <div className="relative z-10 mx-auto lg:w-[1024px] xl:w-[1280px] flex w-full flex-col gap-10 px-[20px] xl:px-[45px] md:flex-row">
         <div className="flex w-full md:w-[60%] max-w-[664px] flex-col items-start gap-6">
+          <div className="partners-strip">
+            <span className="partners-label">Lavoriamo con</span>
+            <div className="partners-marquee" aria-hidden="true">
+              <div className="partners-track">
+                <div className="partners-track-group">
+                  <img src={YtongLogo} alt="" className="partners-logo" />
+                  <img src={AquapanelLogo} alt="" className="partners-logo" />
+                  <img src={YtongLogo} alt="" className="partners-logo" />
+                  <img src={AquapanelLogo} alt="" className="partners-logo" />
+                </div>
+                <div className="partners-track-group" aria-hidden="true">
+                  <img src={YtongLogo} alt="" className="partners-logo" />
+                  <img src={AquapanelLogo} alt="" className="partners-logo" />
+                  <img src={YtongLogo} alt="" className="partners-logo" />
+                  <img src={AquapanelLogo} alt="" className="partners-logo" />
+                </div>
+              </div>
+              <div className="partners-gradient partners-gradient-left" aria-hidden="true" />
+              <div className="partners-gradient partners-gradient-right" aria-hidden="true" />
+            </div>
+          </div>
           <div className="flex w-full flex-col">
             <p className="font-caveat font-bold text-[21px] mb-[5px] leading-[0.95] text-[#FF5500] md:text-[26px] md:text-[#DD5E1F] ">
               Grandi progetti?

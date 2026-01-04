@@ -699,25 +699,47 @@
 
 .cantiere-slide-media {
   position: relative;
-  height: 160px;
+  height: 180px;
   border-radius: 16px;
   background: linear-gradient(135deg, #ffb792 0%, #f79f6f 50%, #ffd7c2 100%);
   overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cantiere-slide-button {
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.cantiere-slide-button:focus-visible {
+  outline: 2px solid #ff5500;
+  outline-offset: 3px;
 }
 
 .cantiere-slide-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(1.08) contrast(1.06);
+  transition: transform 0.4s ease;
+}
+
+.cantiere-slide-button:hover .cantiere-slide-image {
+  transform: scale(1.04);
 }
 
 .cantiere-slide-overlay {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0)),
-    repeating-linear-gradient(110deg, rgba(255, 255, 255, 0.2) 0 6px, rgba(255, 255, 255, 0) 6px 12px);
-  opacity: 0.55;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  opacity: 0.18;
+}
+
+.cantiere-slide-button:hover .cantiere-slide-overlay {
+  opacity: 0.08;
 }
 
 .cantiere-slide-label {
@@ -748,6 +770,73 @@
   font-size: 14px;
   line-height: 1.5;
   color: #2f2f2f;
+}
+
+.cantiere-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 15, 10, 0.78);
+  backdrop-filter: blur(2px);
+}
+
+.cantiere-lightbox-body {
+  width: min(980px, 92vw);
+  max-height: 84vh;
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff8f3;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+.cantiere-lightbox-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.cantiere-lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2f2f2f;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.cantiere-lightbox-close:hover {
+  background: #ffffff;
+  color: #c24000;
+}
+
+@media (max-width: 640px) {
+  .cantiere-lightbox {
+    padding: 16px;
+  }
+
+  .cantiere-lightbox-body {
+    width: 100%;
+    max-height: 80vh;
+    padding: 8px;
+  }
+
+  .cantiere-slide {
+    width: 220px;
+  }
 }
 
 @keyframes cantiereScroll {
@@ -839,6 +928,82 @@
   bottom: 40px;
   animation-delay: -4s;
   background: radial-gradient(circle, rgba(255, 120, 60, 0.25), rgba(255, 120, 60, 0));
+}
+
+.partners-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid #eee2d7;
+  border-bottom: 1px solid #eee2d7;
+}
+
+.partners-label {
+  font-family: "Futuru", "Arial", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8a7a70;
+  white-space: nowrap;
+}
+
+.partners-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: partnersScroll 16s linear infinite;
+  will-change: transform;
+}
+
+.partners-track-group {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.partners-logo {
+  height: 36px;
+  width: auto;
+  opacity: 0.6;
+  filter: grayscale(100%);
+}
+
+.partners-gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  pointer-events: none;
+}
+
+.partners-gradient-left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.partners-gradient-right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+@keyframes partnersScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .playful-pill {

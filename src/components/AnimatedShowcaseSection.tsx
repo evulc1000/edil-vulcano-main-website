@@ -13,38 +13,54 @@ import image12 from "@/assets/lavori/image12.webp";
 import image13 from "@/assets/lavori/image13.webp";
 import image14 from "@/assets/lavori/image14.webp";
 import image15 from "@/assets/lavori/image15.webp";
+import { useEffect, useState } from "react";
 
-const CantiereCarousel = ({ reverse = false }: { reverse?: boolean }) => {
-  const slides = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
-    image9,
-    image10,
-    image11,
-    image12,
-    image13,
-    image14,
-    image15,
-  ];
+type Slide = {
+  src: string;
+  alt: string;
+};
+
+const slides: Slide[] = [
+  { src: image1, alt: "Foto cantiere 1" },
+  { src: image2, alt: "Foto cantiere 2" },
+  { src: image3, alt: "Foto cantiere 3" },
+  { src: image4, alt: "Foto cantiere 4" },
+  { src: image5, alt: "Foto cantiere 5" },
+  { src: image6, alt: "Foto cantiere 6" },
+  { src: image7, alt: "Foto cantiere 7" },
+  { src: image8, alt: "Foto cantiere 8" },
+  { src: image9, alt: "Foto cantiere 9" },
+  { src: image10, alt: "Foto cantiere 10" },
+  { src: image11, alt: "Foto cantiere 11" },
+  { src: image12, alt: "Foto cantiere 12" },
+  { src: image13, alt: "Foto cantiere 13" },
+  { src: image14, alt: "Foto cantiere 14" },
+  { src: image15, alt: "Foto cantiere 15" },
+];
+
+const CantiereCarousel = ({
+  reverse = false,
+  onImageClick,
+}: {
+  reverse?: boolean;
+  onImageClick: (slide: Slide) => void;
+}) => {
+  const trackSlides = [...slides, ...slides];
 
   return (
     <div className="cantiere-carousel">
       <div className="cantiere-carousel-track" style={{ animationDirection: reverse ? "reverse" : "normal" }}>
-        {[...slides, ...slides].map((image, index) => (
+        {trackSlides.map((slide, index) => (
           <div key={`cantiere-slide-${index}`} className="cantiere-slide">
-            <div className="cantiere-slide-media">
-              <img src={image} alt="" aria-hidden="true" className="cantiere-slide-image" />
+            <button
+              type="button"
+              className="cantiere-slide-media cantiere-slide-button"
+              onClick={() => onImageClick(slide)}
+              aria-label={`Apri ${slide.alt}`}
+            >
+              <img src={slide.src} alt={slide.alt} className="cantiere-slide-image" />
               <div className="cantiere-slide-overlay" />
-              {/* <span className="cantiere-slide-label">Foto dal cantiere</span> */}
-            </div>
-            {/* <div className="cantiere-slide-title">Cantiere reale</div>
-            <p className="cantiere-slide-note">Fasi operative, dettagli e lavorazioni dal vivo.</p> */}
+            </button>
           </div>
         ))}
       </div>
@@ -53,6 +69,22 @@ const CantiereCarousel = ({ reverse = false }: { reverse?: boolean }) => {
 };
 
 const AnimatedShowcaseSection = () => {
+  const [lightboxSlide, setLightboxSlide] = useState<Slide | null>(null);
+
+  useEffect(() => {
+    if (!lightboxSlide) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightboxSlide(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxSlide]);
 
   return (
     <section id="progetti-showcase" className="site-divider relative overflow-hidden py-16 sm:py-20 lg:py-24">
@@ -88,10 +120,32 @@ const AnimatedShowcaseSection = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-6">
-          <CantiereCarousel />
-          <CantiereCarousel reverse />
+          <CantiereCarousel onImageClick={setLightboxSlide} />
+          <CantiereCarousel reverse onImageClick={setLightboxSlide} />
         </div>
       </div>
+
+      {lightboxSlide && (
+        <div
+          className="cantiere-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightboxSlide.alt}
+          onClick={() => setLightboxSlide(null)}
+        >
+          <button
+            type="button"
+            className="cantiere-lightbox-close"
+            onClick={() => setLightboxSlide(null)}
+            aria-label="Chiudi immagine"
+          >
+            x
+          </button>
+          <div className="cantiere-lightbox-body" onClick={(event) => event.stopPropagation()}>
+            <img src={lightboxSlide.src} alt={lightboxSlide.alt} className="cantiere-lightbox-image" />
+          </div>
+        </div>
+      )}
     </section>
   );
 };

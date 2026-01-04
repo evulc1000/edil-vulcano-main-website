@@ -2,6 +2,8 @@ import { NavLink } from "@/components/NavLink";
 import logoEdilVulcano from "@/assets/LogoEdilVulcano.webp";
 
 const Footer = () => {
+  const whatsappUrl = "https://wa.me/393514577039";
+
   return (
     <footer className="bg-[#1F1F1F] text-white tracking-[0.4px]">
       <div className="mx-auto w-full max-w-[1180px] px-6 py-12">
@@ -49,6 +51,12 @@ const Footer = () => {
                 </a>
               </p>
               <p>
+                WhatsApp:{" "}
+                <a href={whatsappUrl} className="hover:text-[#FF5500] transition-colors" target="_blank" rel="noreferrer">
+                  Scrivici su WhatsApp
+                </a>
+              </p>
+              <p>
                 Email:{" "}
                 <a href="mailto:edilvulcanosrl@gmail.com" className="hover:text-[#FF5500] transition-colors">
                   edilvulcanosrl@gmail.com
@@ -58,10 +66,18 @@ const Footer = () => {
               <p>P.IVA: 04043340126</p>
               <p>Via Galileo Ferraris 37 - 13046 - Livorno Ferraris (VC)</p>
             </div>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex h-[44px] items-center justify-center rounded-[3px] border border-[#25D366] px-4 font-brunson text-[14px] uppercase tracking-[0.6px] text-white transition-[background-color,color,transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:bg-[#25D366] hover:text-[#1F1F1F] hover:shadow-[0_12px_22px_rgba(37,211,102,0.3)]"
+            >
+              Scrivici su WhatsApp
+            </a>
           </div>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-center font-futuru text-[13px] text-white/55">
-          (c) {new Date().getFullYear()} Edil Vulcano Srls. Tutti i diritti riservati.
+          (c) {new Date().getFullYear()} Edil Vulcano Srl. Tutti i diritti riservati.
         </div>
       </div>
     </footer>
