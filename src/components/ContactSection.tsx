@@ -31,8 +31,8 @@ const ContactSection = () => {
               </p>
               <p>
                 <span className="font-semibold text-headline">Email:</span>{" "}
-                <a href="mailto:edilvulcanosrsl@gmail.com" className="hover:text-[#DD5E1F] transition-colors">
-                  edilvulcanosrsl@gmail.com
+                <a href="mailto:edilvulcanosrl@gmail.com" className="hover:text-[#DD5E1F] transition-colors">
+                  edilvulcanosrl@gmail.com
                 </a>
               </p>
               <p>
