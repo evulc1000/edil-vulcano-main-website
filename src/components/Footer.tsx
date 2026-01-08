@@ -14,12 +14,12 @@ const Footer = () => {
               alt="Edil Vulcano"
               className="h-[64px] w-[210px] object-contain invert"
             />
-            <p className="font-futuru text-[15px] leading-[1.6] text-white/75">
+            <p className="font-futuru text-[18px] tracking-[1px] leading-[1.6] text-white/75">
               Impresa edile con approccio tecnico e operativo. Preventivi trasparenti e cantieri gestiti con chiarezza.
             </p>
           </div>
           <div>
-            <p className="font-brunson text-[20px] uppercase text-white mb-4">Sezioni</p>
+            <p className="font-brunson text-[20px] uppercase tracking-[1px] text-white mb-4">Sezioni</p>
             <div className="flex flex-col gap-2 font-futuru text-[15px] text-white/75">
               <NavLink to="/#chi-siamo" className="hover:text-[#FF5500] transition-colors">
                 Chi siamo
@@ -42,42 +42,53 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <p className="font-brunson text-[20px] uppercase text-white mb-4">Contatti</p>
+            <p className="font-brunson text-[20px] uppercase tracking-[1px] text-white mb-4">Contatti</p>
             <div className="space-y-2 font-futuru text-[15px] text-white/75">
               <p>
                 Telefono:{" "}
-                <a href="tel:+393514577039" className="hover:text-[#FF5500] transition-colors">
+                <a href="tel:+393514577039" className="hover:text-[#FF5500] tracking-[1px] transition-colors">
                   +39 351 457 7039
                 </a>
               </p>
               <p>
                 WhatsApp:{" "}
-                <a href={whatsappUrl} className="hover:text-[#FF5500] transition-colors" target="_blank" rel="noreferrer">
+                <a href={whatsappUrl} className="hover:text-[#FF5500] tracking-[1px] transition-colors" target="_blank" rel="noreferrer">
                   Scrivici su WhatsApp
                 </a>
               </p>
               <p>
                 Email:{" "}
-                <a href="mailto:edilvulcanosrl@gmail.com" className="hover:text-[#FF5500] transition-colors">
+                <a href="mailto:edilvulcanosrl@gmail.com" className="hover:text-[#FF5500] tracking-[1px] transition-colors">
                   edilvulcanosrl@gmail.com
                 </a>
               </p>
-              <p>PEC: edilvulcanosrl@pec.cgn.it</p>
-              <p>P.IVA: 04043340126</p>
-              <p>Via Galileo Ferraris 37 - 13046 - Livorno Ferraris (VC)</p>
+              <p className="tracking-[1px]">PEC: edilvulcanosrl@pec.cgn.it</p>
+              <p className="tracking-[1px]">P.IVA: 04043340126</p>
+              <p className="tracking-[1px]">Via Galileo Ferraris 37 - 13046 - Livorno Ferraris (VC)</p>
             </div>
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex h-[44px] items-center justify-center rounded-[3px] border border-[#25D366] px-4 font-brunson text-[14px] uppercase tracking-[0.6px] text-white transition-[background-color,color,transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:bg-[#25D366] hover:text-[#1F1F1F] hover:shadow-[0_12px_22px_rgba(37,211,102,0.3)]"
+              className="mt-4 inline-flex h-[44px] tracking-[1px] items-center justify-center rounded-[3px] border border-[#25D366] px-4 font-brunson text-[14px] uppercase tracking-[0.6px] text-white transition-[background-color,color,transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:bg-[#25D366] hover:text-[#1F1F1F] hover:shadow-[0_12px_22px_rgba(37,211,102,0.3)]"
             >
               Scrivici su WhatsApp
             </a>
           </div>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-center font-futuru text-[13px] text-white/55">
-          (c) {new Date().getFullYear()} Edil Vulcano Srl. Tutti i diritti riservati.
+          <p>(c) {new Date().getFullYear()} Edil Vulcano Srl. Tutti i diritti riservati.</p>
+          <p className="mt-2">
+            Sito realizzato da{" "}
+            <a
+              href="https://www.upshifts.it"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 transition-colors hover:text-white"
+            >
+              Upshifts
+            </a>
+          </p>
         </div>
       </div>
     </footer>

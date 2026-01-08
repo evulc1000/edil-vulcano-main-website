@@ -58,10 +58,10 @@ const StickyQuoteBar = ({ isVisible }: StickyQuoteBarProps) => {
       <div className="relative border-b border-[#E2E2E2] navbar-premium-bg">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-4 px-4 py-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="hidden lg:block lg:w-[260px]">
-            <p className="font-brunson text-[24px] leading-[1.2] text-headline tracking-[0.2px]">
+            <p className="font-brunson text-[24px] leading-[1.2] text-headline tracking-[0.8px]">
               Preventivo gratuito
             </p>
-            <p className="font-futuru text-[14px] leading-[1.2] text-body-text/70">
+            <p className="font-futuru text-[14px] tracking-[0.8px] leading-[1.2] text-body-text/70">
               Risposta rapida, zero impegno.
             </p>
           </div>
