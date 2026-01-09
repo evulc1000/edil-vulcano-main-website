@@ -1,6 +1,7 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import BookingForm from "@/components/BookingForm";
+import Seo from "@/components/Seo";
 import logoEdilVulcano from "@/assets/LogoEdilVulcano.webp";
 
 const QuickEstimate = () => {
@@ -15,12 +16,13 @@ const QuickEstimate = () => {
     };
   }, [location.search]);
 
-  useEffect(() => {
-    document.title = "Preventivo rapido | Edil Vulcano";
-  }, []);
-
   return (
     <div className="min-h-screen bg-white">
+      <Seo
+        title="Preventivo rapido | Edil Vulcano"
+        description="Richiedi un preventivo rapido e gratuito: invia i dettagli e ti ricontattiamo in breve con una valutazione chiara."
+        path="/preventivo-rapido"
+      />
       <div className="mx-auto flex w-full max-w-[920px] flex-col items-center px-6 py-10 md:py-14">
         <img
           src={logoEdilVulcano}

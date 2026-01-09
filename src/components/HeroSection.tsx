@@ -38,14 +38,14 @@ E cosa va ancora deciso.
             <Button
               asChild
               variant="hero"
-              className="group md:flex hidden h-[58px] w-full max-w-[630px] tracking-[0.80px] rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] font-brunson font-normal text-[24px] md:text-[32px] leading-[1.5] uppercase text-white shadow-[0_8px_20px_rgba(194,64,0,0.25)] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(194,64,0,0.35)] hover:brightness-110"
+              className="group hidden h-[58px] w-full max-w-[630px] rounded-[3px] text-[24px] md:text-[32px] leading-[1.5] tracking-[0.80px] md:flex"
             >
               <NavLink to="/preventivo-rapido">Richiedi consulenza e preventivo gratuiti</NavLink>
             </Button>
             <Button
               asChild
               variant="hero"
-              className="md:hidden flex group h-[58px] w-full max-w-[440px] tracking-[0.80px] rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] font-brunson font-normal text-[24px] md:text-[32px] leading-[1.5] uppercase text-white shadow-[0_8px_20px_rgba(194,64,0,0.25)] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(194,64,0,0.35)] hover:brightness-110"
+              className="group flex h-[58px] w-full max-w-[440px] rounded-[3px] text-[24px] md:text-[32px] leading-[1.5] tracking-[0.80px] md:hidden"
             >
               <NavLink to="/preventivo-rapido">Richiedi il nostro aiuto!</NavLink>
             </Button>

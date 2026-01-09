@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
 import BookingForm from "@/components/BookingForm";
 import { NavLink } from "@/components/NavLink";
 
@@ -11,12 +12,14 @@ const NotFound = () => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 
-  useEffect(() => {
-    document.title = "Pagina non trovata | Edil Vulcano";
-  }, []);
-
   return (
     <PageLayout>
+      <Seo
+        title="Pagina non trovata | Edil Vulcano"
+        description="La pagina richiesta non esiste. Torna alla home o contattaci per assistenza."
+        path="/404"
+        noindex
+      />
       <section className="relative overflow-hidden bg-[#FBF7F2] py-20 md:py-28">
         <div
           aria-hidden="true"

@@ -62,7 +62,7 @@ const Navbar = ({ isHidden = false }: NavbarProps) => {
                   key={link.to}
                   to={link.to}
                   onClick={handleAnchorClick(link.to.replace("/#", ""))}
-                  className="font-brunson text-[26px] xl:text-[30px] tracking-[0.80px] leading-[1.5] uppercase transition-[transform,color] duration-300 ease-out hover:-translate-y-0.5 text-[#3A3D42] hover:text-[#DD5E1F]"
+                  className="font-brunson text-[26px] xl:text-[30px] tracking-[0.8px] leading-[1.5] uppercase transition-[transform,color] duration-300 ease-out hover:-translate-y-0.5 text-[#3A3D42] hover:text-[#DD5E1F]"
                 >
                   {link.label}
                 </NavLink>
@@ -71,7 +71,8 @@ const Navbar = ({ isHidden = false }: NavbarProps) => {
             <Button
               asChild
               variant="hero"
-              className="h-[44px] min-w-[257px] px-[9px] rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] text-white font-brunson font-normal text-[26px] xl:text-[30px] leading-[1.5] uppercase transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(194,64,0,0.35)] hover:brightness-110"
+              size="cta-nav"
+              className="min-w-[257px]"
             >
               <NavLink to="/preventivo-rapido">
                 preventivo gratuito
@@ -119,7 +120,7 @@ const Navbar = ({ isHidden = false }: NavbarProps) => {
             <Button
               asChild
               variant="hero"
-              className="mt-4 w-full h-[58px] rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] text-white font-brunson font-normal tracking-[0.80px] text-[36px] leading-[1.3] uppercase shadow-[0_10px_24px_rgba(194,64,0,0.35)] animate-fade-in-up"
+              className="mt-4 w-full h-[58px] rounded-[3px] text-[36px] leading-[1.3] tracking-[0.80px] animate-fade-in-up"
               style={{ animationDelay: "400ms" }}
             >
               <NavLink

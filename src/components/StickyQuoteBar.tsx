@@ -118,7 +118,8 @@ const StickyQuoteBar = ({ isVisible }: StickyQuoteBarProps) => {
             <Button
               variant="gradient"
               type="submit"
-              className="h-[44px] min-w-[170px] rounded-[3px] bg-[linear-gradient(171.76deg,_#FB7838_22.64%,_#D35213_95.06%)] text-[#F2F2F2] font-brunson font-normal text-[19px] leading-[1.5] uppercase tracking-[0.8px] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(211,82,19,0.35)] hover:brightness-110"
+              size="cta-bar"
+              className="min-w-[170px]"
             >
               richiedilo ora
             </Button>
@@ -127,7 +128,7 @@ const StickyQuoteBar = ({ isVisible }: StickyQuoteBarProps) => {
             <Button
               asChild
               variant="gradient"
-              className="h-[48px] w-full rounded-[3px] bg-[linear-gradient(171.76deg,_#FB7838_22.64%,_#D35213_95.06%)] text-[#F2F2F2] font-brunson font-normal text-[19px] leading-[1.2] uppercase tracking-[0.5px] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(211,82,19,0.35)] hover:brightness-110"
+              className="w-full h-[48px] rounded-[3px] text-[19px] leading-[1.2] tracking-[0.5px]"
             >
               <NavLink to="/preventivo-rapido">
                 <span className="hidden sm:inline">Richiedi un preventivo gratuito</span>
@@ -136,7 +137,8 @@ const StickyQuoteBar = ({ isVisible }: StickyQuoteBarProps) => {
             </Button>
             <Button
               variant="outline"
-              className="h-[48px] w-full rounded-[3px] border border-[#3A3D42] bg-white text-[#3A3D42] font-brunson font-normal text-[19px] leading-[1.2] uppercase tracking-[1px]"
+              size="cta-compact"
+              className="w-full border border-[#3A3D42] bg-white text-[#3A3D42] font-normal text-[19px] tracking-[1px] shadow-none filter-none [text-shadow:none]"
             >
               +39 351 457 7039
             </Button>

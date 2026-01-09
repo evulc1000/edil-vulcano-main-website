@@ -1,13 +1,14 @@
-import { useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
 
 const PrivacyPolicy = () => {
-  useEffect(() => {
-    document.title = "Privacy Policy | Edil Vulcano";
-  }, []);
-
   return (
     <PageLayout>
+      <Seo
+        title="Privacy Policy | Edil Vulcano"
+        description="Informativa sulla privacy di Edil Vulcano: come raccogliamo, utilizziamo e proteggiamo i tuoi dati."
+        path="/privacy-policy"
+      />
       <section className="relative overflow-hidden bg-[#FBF7F2] py-20 md:py-28">
         <div
           aria-hidden="true"

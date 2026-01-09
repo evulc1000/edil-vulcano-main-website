@@ -29,8 +29,7 @@ const steps = [
 const ThreeStepSection = () => {
   const [activeStep, setActiveStep] = useState(0);
   const currentStep = steps[activeStep];
-  const ctaClassName =
-    "group h-[54px] px-6 rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] font-brunson font-normal text-[18px] md:text-[20px] leading-[1.2] uppercase text-white tracking-[0.8px] shadow-[0_8px_20px_rgba(194,64,0,0.25)] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(194,64,0,0.35)] hover:brightness-110";
+  const ctaClassName = "group";
 
   return (
     <section className="three-step-section relative pb-10">
@@ -62,7 +61,7 @@ const ThreeStepSection = () => {
                 <div className="three-step-label">{currentStep.label}</div>
                 <div className="three-step-title font-grift font-bold italic">{currentStep.title}</div>
                 <p className="three-step-copy font-light">{currentStep.copy}</p>
-                <Button asChild variant="hero" className={`${ctaClassName} mt-4`}>
+                <Button asChild variant="hero" size="cta" className={`${ctaClassName} mt-4`}>
                   <NavLink to="/preventivo-rapido">{currentStep.cta}</NavLink>
                 </Button>
               </div>

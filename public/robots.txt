@@ -17,4 +17,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://edilvulcano.it/sitemap.xml
+Sitemap: https://edil-vulcano.it/sitemap.xml

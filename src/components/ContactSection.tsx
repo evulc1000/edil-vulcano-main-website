@@ -4,10 +4,8 @@ import AfifDaSolo from "@/assets/afifdasolo.webp";
 
 const ContactSection = () => {
   const whatsappUrl = "https://wa.me/393514577039";
-  const ctaClassName =
-    "group h-[58px] w-full rounded-[3px] bg-[linear-gradient(171.76deg,_#FF5500_22.64%,_#C24000_95.06%)] font-brunson font-normal text-[20px] md:text-[22px] tracking-[1px] leading-[1.2] uppercase text-white shadow-[0_8px_20px_rgba(194,64,0,0.25)] transition-[transform,box-shadow,filter] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(194,64,0,0.35)] hover:brightness-110";
   const whatsappButtonClassName =
-    "group h-[52px] w-full rounded-[3px] border border-[#25D366] bg-white font-brunson text-[18px] uppercase tracking-[0.6px] text-[#1F1F1F] shadow-[0_8px_18px_rgba(37,211,102,0.18)] transition-[transform,box-shadow,background-color,color] duration-300 ease-out hover:-translate-y-1 hover:bg-[#25D366] hover:text-white hover:shadow-[0_14px_26px_rgba(37,211,102,0.3)]";
+    "group w-full border border-[#25D366] bg-white text-[#1F1F1F] uppercase shadow-[0_8px_18px_rgba(37,211,102,0.18)] transition-[transform,box-shadow,background-color,color] duration-300 ease-out hover:-translate-y-1 hover:bg-[#25D366] hover:text-white hover:shadow-[0_14px_26px_rgba(37,211,102,0.3)]";
 
   return (
     <section id="contatti" className="relative scroll-mt-[110px] overflow-hidden bg-[#FBF7F2] py-20 md:py-28">
@@ -51,10 +49,10 @@ const ContactSection = () => {
                 <span className="font-semibold text-headline">Sede:</span> Via Galileo Ferraris 37 - 13046 - Livorno Ferraris (VC)
               </p>
             </div>
-            <Button asChild variant="hero" className={ctaClassName}>
+            <Button asChild variant="hero" size="cta" className="group w-full">
               <NavLink to="/preventivo-rapido">Contattaci</NavLink>
             </Button>
-            <Button asChild className={`${whatsappButtonClassName} font-medium tracking-[1px] mt-3`}>
+            <Button asChild variant="outline" size="cta-sm" className={`${whatsappButtonClassName} font-medium mt-3`}>
               <a href={whatsappUrl} target="_blank" rel="noreferrer">
                 Scrivici su WhatsApp
               </a>

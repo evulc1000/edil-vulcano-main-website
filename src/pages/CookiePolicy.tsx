@@ -1,13 +1,14 @@
-import { useEffect } from "react";
 import PageLayout from "@/components/PageLayout";
+import Seo from "@/components/Seo";
 
 const CookiePolicy = () => {
-  useEffect(() => {
-    document.title = "Cookie Policy | Edil Vulcano";
-  }, []);
-
   return (
     <PageLayout>
+      <Seo
+        title="Cookie Policy | Edil Vulcano"
+        description="Informativa sui cookie di Edil Vulcano: solo cookie tecnici essenziali per il corretto funzionamento del sito."
+        path="/cookie-policy"
+      />
       <section className="relative overflow-hidden bg-[#FBF7F2] py-20 md:py-28">
         <div
           aria-hidden="true"
